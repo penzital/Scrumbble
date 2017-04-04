@@ -18,6 +18,30 @@ class GameScene: SKScene {
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
+    private var shape: SKShapeNode
+    func addShape(){
+        let path = UIBezierPath()
+        path.move(to: CGPoint(x: 0, y: -200))
+        
+        path.addLine(to: CGPoint(x: 0, y: -160))
+        path.addArc(withCenter: CGPoint.zero,
+                    radius:160,
+                    startAngle: CGFloat(3*M_PI_2),
+                    endAngle: CGFloat(0),
+                    clockwise: true)
+        
+        path.addLine(to: CGPoint(x: 200, y: 0)
+        
+        path.addArc(withCenter: CGPoint.zero,
+                    radius:200,
+                    startAngle: CGFloat(0),
+                    endAngle: CGFloat(3*M_PI_2),
+                    clockwise: false)
+            
+        self.shape = SKShapeNode(path: path.cgPath)
+        
+    }
+    
     override func sceneDidLoad() {
 
         self.lastUpdateTime = 0
